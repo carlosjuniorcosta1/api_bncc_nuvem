@@ -1408,5 +1408,5 @@ def delete_grades(id_avaliacao):
 
     return jsonify(message=f"Atividade {id_avaliacao} apagada!", dado_deletado=id_avaliacao)
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run()
