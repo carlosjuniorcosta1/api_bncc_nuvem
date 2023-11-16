@@ -11,12 +11,9 @@ spec = FlaskPydanticSpec('flask', title="Endpoints da api de consulta \
 spec.register(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})  
 
-data_for_connection = (
-    "Driver={ODBC Driver 17 for SQL Server};"
-    "Server=DESKTOP-1698A6Q\SQLEXPRESS;"
-    "Database=bncc;"
-    "Trusted_connection=YES;"
+data_for_connection = ("DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-1698A6Q\SQLEXPRESS;Database=bncc;Trusted_Connection=yes;"
 )
+  
 
 connection = pyodbc.connect(data_for_connection)
 cursor = connection.cursor()
