@@ -12,7 +12,7 @@ spec.register(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})  
 
 data_for_connection = (
-    "Driver={SQL Server Native Client RDA 11.0};"
+    "Driver={ODBC Driver 17 for SQL Server};"
     "Server=DESKTOP-1698A6Q\SQLEXPRESS;"
     "Database=bncc;"
     "Trusted_connection=YES;"
