@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import pyodbc
 from flask_pydantic_spec import FlaskPydanticSpec
+
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ spec = FlaskPydanticSpec('flask', title="Endpoints da api de consulta \
                          da Base Nacional Curricular Comum - BNCC")
 
 spec.register(app)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})  
 
 data_for_connection = (
     "Driver={SQL Server Native Client RDA 11.0};"
