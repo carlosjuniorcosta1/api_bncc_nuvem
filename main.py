@@ -6,16 +6,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 spec = FlaskPydanticSpec('flask', title="Endpoints da api de consulta \
                          da Base Nacional Curricular Comum - BNCC")
-
 spec.register(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})  
 
 data_for_connection = ("DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-1698A6Q\SQLEXPRESS;Database=bncc;Trusted_Connection=yes;"
-)
-  
+) 
 connection = pyodbc.connect(data_for_connection)
 cursor = connection.cursor()
-
 @app.route('/diario/aula/registrar', methods=['POST'])
 def insert_class():
     obj_cla = request.get_json(force=True)
