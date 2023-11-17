@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 import pyodbc
 from flask_pydantic_spec import FlaskPydanticSpec
-
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -14,10 +13,8 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 data_for_connection = ("DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-1698A6Q\SQLEXPRESS;Database=bncc;Trusted_Connection=yes;"
 )
   
-
 connection = pyodbc.connect(data_for_connection)
 cursor = connection.cursor()
-
 
 @app.route('/diario/aula/registrar', methods=['POST'])
 def insert_class():
